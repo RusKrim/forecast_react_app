@@ -2,7 +2,6 @@
 import { types } from "./types";
 
 import { api } from "../../api";
-import moment from "moment";
 
 export const forecastActions = Object.freeze({
   // Sync

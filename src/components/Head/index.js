@@ -1,7 +1,6 @@
 import React from "react";
 import "./styles.scss";
 import moment from "moment";
-import "moment/locale/ru";
 
 export const Head = props => {
   const { source } = props;
@@ -9,7 +8,6 @@ export const Head = props => {
   const list = source[0];
   const loader = "Загрузка...";
 
-  moment.locale("ru");
   return (
     <>
       <div className="head">
