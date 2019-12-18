@@ -2,6 +2,8 @@
 import { types } from "./types";
 
 import { api } from "../../api";
+import moment from "moment";
+
 export const forecastActions = Object.freeze({
   // Sync
   startFetching: () => {
@@ -27,6 +29,18 @@ export const forecastActions = Object.freeze({
       payload: error
     };
   },
+  selectDay: payload => {
+    return {
+      type: types.FORECAST_SELECT_DAY,
+      payload
+    };
+  },
+  forecastFilter: payload => {
+    return {
+      type: types.FORECAST_FILTER,
+      payload
+    };
+  },
   // Async
   fetchAsync: () => async dispatch => {
     dispatch({
@@ -35,16 +49,14 @@ export const forecastActions = Object.freeze({
 
     dispatch(forecastActions.startFetching());
 
-    const response = await api.forecast.fetch();
+    try {
+      const response = await api.forecast.fetch();
 
-    if (response.status === 200) {
-      const results = await response.json();
-      dispatch(forecastActions.fill(results));
-    } else {
-      const error = {
-        status: response.status
-      };
-
+      if (response.status === 200) {
+        const results = await response.json();
+        dispatch(forecastActions.fill(results));
+      }
+    } catch (error) {
       dispatch(forecastActions.setFetchingError(error));
     }
 

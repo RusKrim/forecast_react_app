@@ -1,6 +1,5 @@
 import React from "react";
 import { useForecastFetch } from "./hooks/useForecastFetch";
-import { Title } from "../../common/title";
 
 export const Forecast = () => {
   const { isFetching, data, error } = useForecastFetch();
@@ -9,7 +8,7 @@ export const Forecast = () => {
 
   const loader = isFetching && <p>Loading data from API...</p>;
 
-  const list =
+  const day =
     isFetching ||
     data.map(
       ({ rain_probability, humidity, day, temperature, type, objectId }) => (
@@ -18,10 +17,10 @@ export const Forecast = () => {
     );
   return (
     <>
-      <Title>Прогноз погоды</Title>
+      <h1>Прогноз погоды</h1>
       {errorMessage}
       {loader}
-      <ul>{list}</ul>
+      <ul>{day}</ul>
     </>
   );
 };

@@ -1,8 +1,9 @@
 import React from "react";
+// import { useSelector, useDispatch } from "react-redux";
+// import { Formik } from "formik";
+
 import "./styles.scss";
 export const ForecastFilter = () => {
-  //   const { isFetching, data, error } = useForecastFetch();
-
   return (
     <>
       <div className="filter">

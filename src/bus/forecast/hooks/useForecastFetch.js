@@ -5,7 +5,9 @@ import { forecastActions } from "../actions";
 
 export const useForecastFetch = () => {
   const dispatch = useDispatch();
-  const { data, isFetching, error } = useSelector(state => state.forecast);
+  const { selectDay, filter, data, isFetching, error } = useSelector(
+    state => state.forecast
+  );
 
   useEffect(() => {
     dispatch(forecastActions.fetchAsync());
@@ -13,6 +15,8 @@ export const useForecastFetch = () => {
 
   return {
     data,
+    selectDay,
+    filter,
     isFetching,
     error
   };
