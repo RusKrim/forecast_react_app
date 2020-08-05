@@ -5,8 +5,6 @@ const initialState = {
   data: [],
   isFetching: false,
   error: false,
-  filter: null,
-  selectDay: null
 };
 
 export const forecastReducer = (state = initialState, { type, payload }) => {
@@ -19,10 +17,6 @@ export const forecastReducer = (state = initialState, { type, payload }) => {
       return { ...state, error: payload };
     case types.FORECAST_FILL:
       return { ...state, data: payload };
-    // case types.FORECAST_SELECT_DAY:
-    //   return { ...state, selectDay: payload };
-    // case types.FORECAST_FILTER:
-    //   return { ...state, filter: payload };
 
     default:
       return state;

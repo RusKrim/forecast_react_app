@@ -4,8 +4,8 @@ export const api = Object.freeze({
   forecast: {
     fetch: () => {
       return fetch(`${root}`, {
-        method: "GET"
+        method: "GET",
       });
-    }
-  }
+    },
+  },
 });

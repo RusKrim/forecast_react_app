@@ -4,18 +4,14 @@ import { Switch, Route } from "react-router-dom";
 import { book } from "./book";
 
 // Layouts
-import * as Views from "../views";
-
 // Domains
-import { Forecast } from "../bus/forecast";
+import { Main } from "../views/Main";
 
 export const Routes = () => (
   <>
     <Switch>
       <Route exact path={book.forecast}>
-        <Views.Home>
-          <Forecast />
-        </Views.Home>
+        <Main />
       </Route>
     </Switch>
   </>
