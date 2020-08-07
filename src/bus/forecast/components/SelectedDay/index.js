@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import moment from "moment";
 
 export const SelectedDay = ({ source }) => {
-  const selectedDay = source[0];
+  const selectedDay = source;
 
   const loader = "Загрузка...";
   return (

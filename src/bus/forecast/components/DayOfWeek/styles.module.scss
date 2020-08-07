@@ -2,16 +2,17 @@
   position: relative;
   width: 130px;
   height: 204px;
-  background-color: #c486bb;
+  background-color: #af60a3;
   color: #fff;
   padding-top: 35px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  .selected {
-    background-color: #d9a9ce;
+  &_selected {
+    background-color: #e2b0d6;
   }
+
   p {
     display: inline-block;
     font-family: "Roboto", sans-serif;
@@ -35,9 +36,8 @@
       border-radius: 50%;
     }
   }
-  &-icon {
-    width: 40%;
-    .cloudy:before {
+  .icon {
+    &_cloudy {
       position: absolute;
       top: 86px;
       content: "";
@@ -48,7 +48,7 @@
       background-size: contain;
       background-repeat: no-repeat;
     }
-    .rainy:before {
+    &_rainy {
       position: absolute;
       top: 86px;
       content: "";
@@ -59,7 +59,7 @@
       background-size: contain;
       background-repeat: no-repeat;
     }
-    .sunny:before {
+    &_sunny {
       position: absolute;
       top: 86px;
       content: "";

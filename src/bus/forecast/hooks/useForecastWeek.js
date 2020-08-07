@@ -1,13 +1,16 @@
 import { useSelector } from "react-redux";
-import { orderByAscendingOrder } from "../../../helpers/orderByAsc";
-
+import { sortByAscendingOrder } from "../../../helpers/sortByAscendingOrder";
+import { sortDatesToActual } from "../../../helpers/sortDatesToActual";
+import orderBy from "lodash/orderBy";
 export const useForecastWeek = () => {
   const { data } = useSelector((state) => state.forecast);
 
-  const sortAsc = orderByAscendingOrder(data);
-  const sliceData = sortAsc.slice(1, sortAsc.length);
-  const res = sliceData.slice(0, 7);
+  const sortAsc = sortByAscendingOrder(data);
+  const actual = sortDatesToActual(sortAsc);
+  const sor = actual.slice(0, 7);
+
   return {
-    weekData: res,
+    weekData: sor,
+    data,
   };
 };

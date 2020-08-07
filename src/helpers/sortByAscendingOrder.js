@@ -1,7 +1,7 @@
 import moment from "moment";
 
-export const orderByAscendingOrder = (data) => {
-  return [...data].sort((a, b) => {
+export const sortByAscendingOrder = (data) => {
+  return data.sort((a, b) => {
     const dayA = moment(a.day).date();
     const dayB = moment(b.day).date();
     return dayA > dayB ? 1 : dayA < dayB ? -1 : 0;

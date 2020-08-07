@@ -2,6 +2,8 @@
 import { types } from "./types";
 
 import { api } from "../../api";
+import orderBy from "lodash/orderBy";
+import moment from "moment";
 
 export const forecastActions = Object.freeze({
   // Sync
@@ -29,6 +31,13 @@ export const forecastActions = Object.freeze({
     };
   },
 
+  setSelectedDay: (payload) => {
+    return {
+      type: types.FORECAST_SET_SELECTED_DAY,
+      payload,
+    };
+  },
+
   // Async
   fetchAsync: () => async (dispatch) => {
     dispatch({
@@ -42,6 +51,7 @@ export const forecastActions = Object.freeze({
 
       if (response.status === 200) {
         const result = await response.json();
+        dispatch(forecastActions.setSelectedDay(result[0]));
         dispatch(forecastActions.fill(result));
       }
     } catch (error) {
