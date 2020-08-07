@@ -24,3 +24,12 @@
     text-align: center;
   }
 }
+.error {
+  color: crimson;
+  border: 2px solid crimson;
+  display: block;
+  width: 300px;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}

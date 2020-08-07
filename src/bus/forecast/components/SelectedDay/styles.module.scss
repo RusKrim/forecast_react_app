@@ -3,23 +3,24 @@
   justify-content: center;
   margin-top: 60px;
   margin-bottom: 83px;
-  .cloudy {
-    background-image: url("../../assets/img/weather-icon-cloudy.png");
-    width: 88px;
-  }
-  .rainy {
-    width: 88px;
-    background-image: url("..//../assets/img/weather-icon-rainy.png");
-  }
-  .sunny {
-    width: 88px;
-    background-image: url("../../assets/img/weather-icon-sunny.png");
-  }
+
   .icon {
     margin-right: 30px;
     background-size: contain;
     background-repeat: no-repeat;
     height: 88px;
+    &_cloudy {
+      background-image: url("../../assets/img/weather-icon-cloudy.png");
+      width: 88px;
+    }
+    &_rainy {
+      width: 88px;
+      background-image: url("..//../assets/img/weather-icon-rainy.png");
+    }
+    &_sunny {
+      width: 88px;
+      background-image: url("../../assets/img/weather-icon-sunny.png");
+    }
   }
   .current__date {
     display: flex;

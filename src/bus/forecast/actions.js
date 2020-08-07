@@ -2,8 +2,6 @@
 import { types } from "./types";
 
 import { api } from "../../api";
-import orderBy from "lodash/orderBy";
-import moment from "moment";
 
 export const forecastActions = Object.freeze({
   // Sync

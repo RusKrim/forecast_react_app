@@ -1,28 +1,24 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { ForecastFilter, SelectedDay, Week } from "./components";
 import { useForecastFetch, useForecastWeek } from "./hooks";
-import { useSelectedDay } from "./hooks/useSelectedDay";
 
 export const Forecast = () => {
   const { isFetching, error } = useForecastFetch();
-  const { selectedDayItem, setSelectedDay } = useSelectedDay();
-  const { weekData, data } = useForecastWeek();
-
+  const { weekData } = useForecastWeek();
+  const { selectedDay } = useSelector((state) => state.forecast);
   const errorMessage = error.status === 404 && <p>Not found!</p>;
 
   const loader = isFetching && <p>Loading data from API...</p>;
+  const selectedDayJSX = selectedDay && <SelectedDay source={selectedDay} />;
 
-  const currentDayJSX = selectedDayItem && (
-    <SelectedDay source={selectedDayItem} />
-  );
   return (
     <>
       {errorMessage}
       {loader}
-      <h1>Прогноз погоды</h1>
       <ForecastFilter />
-      {currentDayJSX}
-      <Week weekSource={weekData} data={data} setSelect={setSelectedDay} />
+      {selectedDayJSX}
+      <Week weekSource={weekData} />
     </>
   );
 };
