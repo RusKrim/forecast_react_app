@@ -4,6 +4,8 @@ import styles from "./styles.module.scss";
 import moment from "moment";
 import cx from "classnames";
 import { useSelectedDay } from "../../hooks";
+import { capitalizeFirstLetter } from "../../../../helpers/capitalizeFirstLetter";
+
 export const DayOfWeek = ({ source }) => {
   const { setSelectedDay } = useSelectedDay();
   const { selectedDay } = useSelector((state) => state.forecast);
@@ -18,10 +20,12 @@ export const DayOfWeek = ({ source }) => {
     [styles.day_selected]: selectedDay.day === day,
   });
 
+  const currentDay = moment(day).format("dddd");
+
   return (
     <>
       <div className={dayCn} onClick={() => setSelectedDay(source)}>
-        <p>{moment(day).format("dddd")}</p>
+        <p>{capitalizeFirstLetter(currentDay)}</p>
         <div className={iconCn}></div>
         <span>{temperature}</span>
       </div>

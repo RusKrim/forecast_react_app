@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./styles.module.scss";
 import moment from "moment";
 import cx from "classnames";
+import { capitalizeFirstLetter } from "../../../../helpers/capitalizeFirstLetter";
 
 export const SelectedDay = ({ source }) => {
   const { type, temperature, rain_probability, humidity, day } = source;
@@ -12,12 +13,14 @@ export const SelectedDay = ({ source }) => {
     [styles.icon_rainy]: type === "rainy",
   });
 
+  const currentDay = moment(day).format("dddd");
+
   return (
     <>
       <div className={styles.head}>
         <div className={cn}></div>
         <div className={styles.current__date}>
-          <p>{moment(day).format("dddd")}</p>
+          <p>{capitalizeFirstLetter(currentDay)}</p>
           <span>{moment(day).format("DD MMMM")}</span>
         </div>
       </div>
