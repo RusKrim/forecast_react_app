@@ -1,12 +1,14 @@
 // Types
 import { types } from "./types";
+import { getFilteredForecast } from "../../helpers/getFilteredForecast";
 
 const initialState = {
   data: [],
   isFetching: false,
   error: false,
   selectedDay: null,
-  filteredDays: null,
+  filteredDays: [],
+  week: [],
 };
 
 export const forecastReducer = (state = initialState, { type, payload }) => {
@@ -22,7 +24,12 @@ export const forecastReducer = (state = initialState, { type, payload }) => {
     case types.FORECAST_SET_SELECTED_DAY:
       return { ...state, selectedDay: payload };
     case types.FORECAST_FILTER_DAYS:
-      return { ...state, filteredDays: payload };
+      return {
+        ...state,
+        filteredDays: getFilteredForecast(state.week, payload),
+      };
+    case types.FORECAST_WEEK:
+      return { ...state, week: payload };
 
     default:
       return state;

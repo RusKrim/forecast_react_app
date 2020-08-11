@@ -1,12 +1,20 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
 import { sortByAscendingOrder } from "../../../helpers/sortByAscendingOrder";
+import { useSelector, useDispatch } from "react-redux";
+import { forecastActions } from "../actions";
+
 export const useForecastWeek = () => {
   const { data } = useSelector((state) => state.forecast);
 
   const sortAsc = sortByAscendingOrder(data);
-  const sor = sortAsc.slice(1, 8);
+  const sortedWeek = sortAsc.slice(1, 8);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(forecastActions.setWeek(sortedWeek));
+  }, [sortedWeek.length]);
 
   return {
-    weekData: sor,
+    weekData: sortedWeek,
   };
 };

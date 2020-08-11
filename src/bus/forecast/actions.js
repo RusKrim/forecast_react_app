@@ -35,6 +35,18 @@ export const forecastActions = Object.freeze({
       payload,
     };
   },
+  setFilteredDays: (payload) => {
+    return {
+      type: types.FORECAST_FILTER_DAYS,
+      payload,
+    };
+  },
+  setWeek: (payload) => {
+    return {
+      type: types.FORECAST_WEEK,
+      payload,
+    };
+  },
 
   // Async
   fetchAsync: () => async (dispatch) => {

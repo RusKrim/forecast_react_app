@@ -2,14 +2,14 @@ import React from "react";
 import { useField } from "formik";
 import styles from "./styles.module.scss";
 
-export const CustomInputField = ({ label, ...props }) => {
+export const InputField = ({ label, ...props }) => {
   const [field, meta] = useField({
     ...props,
   });
 
   return (
     <>
-      <div className={styles.custom__imput}>
+      <div className={styles.custom_input}>
         <label htmlFor={props.id || props.name}>{label}</label>
         <input {...field} {...props} />
         {meta.touched && meta.error && (
