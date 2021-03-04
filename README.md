@@ -1,2 +1,9 @@
-Персональный проект по React #1 Прогноз Погоды
+#####Персональный проект по React
 
+## #1 Прогноз Погоды
+
+![alt text][logo]
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+
+#####Техническое задание
